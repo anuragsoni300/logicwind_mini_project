@@ -1,5 +1,5 @@
 import 'package:ddd/backend/cubit/loginuser_cubit.dart';
-import 'package:ddd/screens/loginscreen.dart';
+import 'package:ddd/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,11 +18,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final myRoutes = MyRoutes();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: LoginScreen(),
-      ),
+      initialRoute: '/',
+      onGenerateRoute: myRoutes.userroutes,
     );
   }
 }

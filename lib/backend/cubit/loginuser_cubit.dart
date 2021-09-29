@@ -11,9 +11,23 @@ class LoginuserCubit extends Cubit<LoginuserState> {
 
   void login(String email, String password) {
     helper.login(email, password).then(
-          (user) => emit(
-            LoginuserDone(user: user),
-          ),
-        );
+      (user) {
+        if (user is User)
+          emit(LoginuserDone(user: user));
+        else
+          emit(WrongCredential());
+      },
+    );
+  }
+
+  void register(String email, String password) {
+    helper.register(email, password).then(
+      (user) {
+        if (user is User)
+          emit(LoginuserDone(user: user));
+        else
+          emit(LoginuserExist());
+      },
+    );
   }
 }
