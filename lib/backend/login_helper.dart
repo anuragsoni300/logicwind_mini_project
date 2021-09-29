@@ -1,10 +1,12 @@
+import 'package:ddd/backend/static/static_class.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginHelper {
-  Future<dynamic> register(String email, String password) async {
+  Future<dynamic> register() async {
     try {
       final authUser = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
+          .createUserWithEmailAndPassword(
+              email: Constants.email!, password: Constants.password!);
       User user = authUser.user!;
       return user;
     } catch (e) {
@@ -12,10 +14,10 @@ class LoginHelper {
     }
   }
 
-  Future<dynamic> login(String email, String password) async {
+  Future<dynamic> login() async {
     try {
-      final authUser = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
+      final authUser = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: Constants.email!, password: Constants.password!);
       User user = authUser.user!;
       return user;
     } catch (e) {

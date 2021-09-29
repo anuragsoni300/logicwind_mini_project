@@ -9,8 +9,8 @@ class LoginuserCubit extends Cubit<LoginuserState> {
   LoginHelper helper = LoginHelper();
   LoginuserCubit() : super(LoginuserInitial());
 
-  void login(String email, String password) {
-    helper.login(email, password).then(
+  void login() {
+    helper.login().then(
       (user) {
         if (user is User)
           emit(LoginuserDone(user: user));
@@ -20,8 +20,8 @@ class LoginuserCubit extends Cubit<LoginuserState> {
     );
   }
 
-  void register(String email, String password) {
-    helper.register(email, password).then(
+  void register() {
+    helper.register().then(
       (user) {
         if (user is User)
           emit(LoginuserDone(user: user));
