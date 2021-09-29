@@ -19,14 +19,17 @@ class LoginScreen extends StatelessWidget {
           Form(
             key: _formKey,
             child: Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  EmailInput(formkey: _formKey),
-                  PasswordInput(formkey: _formKey),
-                  LoginButton(),
-                  LoginError(),
-                ],
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    EmailInput(formkey: _formKey),
+                    PasswordInput(formkey: _formKey),
+                    LoginButton(),
+                    LoginError(),
+                  ],
+                ),
               ),
             ),
           ),

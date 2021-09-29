@@ -7,11 +7,21 @@ class RegisterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {
-        BlocProvider.of<LoginuserCubit>(context).register();
-      },
-      icon: Icon(Icons.forward),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 30),
+      child: Card(
+        elevation: 10,
+        child: GestureDetector(
+          onTap: () {
+            BlocProvider.of<LoginuserCubit>(context).register();
+          },
+          child: Padding(
+            padding:
+                const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+            child: Icon(Icons.forward),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -19,10 +19,10 @@ class RegisterError extends StatelessWidget {
               'User exist',
               style: GoogleFonts.shadowsIntoLight(
                 textStyle: TextStyle(
-                  color: Colors.black,
+                  color: Colors.red,
                   height: 1.5,
                   fontWeight: FontWeight.w700,
-                  fontSize: 30,
+                  fontSize: 20,
                 ),
               ),
             ),
