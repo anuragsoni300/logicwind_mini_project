@@ -17,7 +17,7 @@ class _CartCounterState extends State<CartCounter> {
           height: 32,
           child: IconButton(
             onPressed: () {
-              if (numOfItems > 1)
+              if (numOfItems > 1) if (this.mounted)
                 setState(() {
                   numOfItems--;
                 });
@@ -43,9 +43,10 @@ class _CartCounterState extends State<CartCounter> {
           height: 32,
           child: IconButton(
             onPressed: () {
-              setState(() {
-                numOfItems++;
-              });
+              if (this.mounted)
+                setState(() {
+                  numOfItems++;
+                });
             },
             icon: Icon(Icons.add),
           ),

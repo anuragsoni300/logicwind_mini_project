@@ -11,9 +11,12 @@ class LoginError extends StatelessWidget {
     return BlocBuilder<LoginuserCubit, LoginuserState>(
       builder: (context, state) {
         if (state is LoginuserDone) {
+          Future.delayed(Duration.zero, () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/mainpage');
+          });
           return Container();
-        }
-        if (state is WrongCredential) {
+        } else if (state is WrongCredential) {
           return Center(
             child: Text(
               'Wrong credential',

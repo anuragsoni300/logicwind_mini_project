@@ -21,11 +21,12 @@ class _BodyState extends State<Body> {
 
   getData() async {
     d = await fsconnect.collection("bag").get();
-    setState(() {
-      for (var i in d!.docs) {
-        print(i.data());
-      }
-    });
+    if (this.mounted)
+      setState(() {
+        for (var i in d!.docs) {
+          print(i.data());
+        }
+      });
   }
 
   @override
@@ -37,7 +38,7 @@ class _BodyState extends State<Body> {
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Text(
             "Women",
-           style: GoogleFonts.gruppo(
+            style: GoogleFonts.gruppo(
               textStyle: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w700,

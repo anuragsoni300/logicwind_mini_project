@@ -11,7 +11,10 @@ class RegisterError extends StatelessWidget {
     return BlocBuilder<LoginuserCubit, LoginuserState>(
       builder: (context, state) {
         if (state is LoginuserDone) {
-          return Container();
+          Future.delayed(Duration.zero, () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/mainpage');
+          });
         }
         if (state is LoginuserExist) {
           return Center(

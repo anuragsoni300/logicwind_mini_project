@@ -29,9 +29,10 @@ class _CounterWithFavBtnState extends State<CounterWithFavBtn> {
           ),
           child: IconButton(
             onPressed: () {
-              setState(() {
-                fav = !fav;
-              });
+              if (this.mounted)
+                setState(() {
+                  fav = !fav;
+                });
             },
             icon: Icon(
               fav ? Icons.favorite_rounded : Icons.favorite_border_rounded,

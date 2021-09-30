@@ -27,9 +27,10 @@ class _CategoriesState extends State<Categories> {
   Widget buildCategory(int index) {
     return GestureDetector(
       onTap: () {
-        setState(() {
-          selectedIndex = index;
-        });
+        if (this.mounted)
+          setState(() {
+            selectedIndex = index;
+          });
       },
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
