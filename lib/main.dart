@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
+  await Firebase.initializeApp();
   runApp(BlocProvider(
     create: (context) => LoginuserCubit(),
     child: MyApp(),
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     final myRoutes = MyRoutes();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
+      initialRoute: '/frontpage',
       onGenerateRoute: myRoutes.userroutes,
     );
   }

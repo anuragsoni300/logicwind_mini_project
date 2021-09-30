@@ -1,3 +1,4 @@
+import 'package:ddd/screens/database_screen/front_page.dart';
 import 'package:ddd/screens/login/loginscreen.dart';
 import 'package:ddd/screens/register/registerscreen.dart';
 import 'package:ddd/screens/welcome/welcome.dart';
@@ -12,6 +13,9 @@ class MyRoutes {
       case '/register':
         return MaterialPageRoute(
             builder: (context) => Scaffold(body: RegisterScreen()));
+      case '/frontpage':
+        return MaterialPageRoute(
+            builder: (context) => Scaffold(body: FrontPage()));
       default:
         return MaterialPageRoute(
             builder: (context) => Scaffold(body: WelcomeScreen()));
