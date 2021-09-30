@@ -18,7 +18,7 @@ class CounterWithFavBtn extends StatelessWidget {
           height: 32,
           width: 32,
           decoration: BoxDecoration(
-            color: Color(0xFFFF6464),
+            color: Colors.transparent,
             shape: BoxShape.circle,
           ),
           child: Icon(Icons.favorite_border_rounded),

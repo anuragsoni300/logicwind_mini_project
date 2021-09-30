@@ -21,31 +21,33 @@ class Body extends StatelessWidget {
             height: size.height,
             child: Stack(
               children: <Widget>[
-                Container(
-                  margin: EdgeInsets.only(top: size.height * 0.3),
-                  padding: EdgeInsets.only(
-                    top: size.height * 0.12,
-                    left: 20,
-                    right: 20,
-                  ),
-                  // height: 500,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(24),
-                      topRight: Radius.circular(24),
+                SingleChildScrollView(
+                  child: Container(
+                    margin: EdgeInsets.only(top: size.height * 0.3),
+                    padding: EdgeInsets.only(
+                      top: size.height * 0.12,
+                      left: 20,
+                      right: 20,
                     ),
-                  ),
-                  child: Column(
-                    children: <Widget>[
-                      ColorAndSize(product: product),
-                      SizedBox(height: 10),
-                      Description(product: product),
-                      SizedBox(height: 10),
-                      CounterWithFavBtn(),
-                      SizedBox(height: 10),
-                      AddToCart(product: product)
-                    ],
+                    // height: 500,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(24),
+                        topRight: Radius.circular(24),
+                      ),
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        ColorAndSize(product: product),
+                        SizedBox(height: 10),
+                        Description(product: product),
+                        SizedBox(height: 10),
+                        CounterWithFavBtn(),
+                        SizedBox(height: 10),
+                        AddToCart(product: product)
+                      ],
+                    ),
                   ),
                 ),
                 ProductTitleWithImage(product: product)

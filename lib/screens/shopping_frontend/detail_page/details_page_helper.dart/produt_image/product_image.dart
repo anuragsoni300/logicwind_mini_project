@@ -19,14 +19,14 @@ class ProductTitleWithImage extends StatelessWidget {
         children: <Widget>[
           Text(
             "Aristocratic Hand Bag",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.black),
           ),
           Text(
             product['title'],
             style: Theme.of(context)
                 .textTheme
                 .headline4!
-                .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+                .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 20),
           Row(
@@ -34,26 +34,38 @@ class ProductTitleWithImage extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(text: "Price\n"),
+                    TextSpan(
+                      text: "Price\n",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline4!
+                          .copyWith(color: Colors.black),
+                    ),
                     TextSpan(
                       text: "${product['prize']}",
                       style: Theme.of(context).textTheme.headline4!.copyWith(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                          color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
               ),
               SizedBox(width: 20),
               Expanded(
-                child: Hero(
-                  tag: "${product.id}",
-                  child: CachedNetworkImage(
-                    imageUrl: product['image'],
-                    placeholder: (context, url) =>
-                        Center(child: CircularProgressIndicator()),
-                    errorWidget: (context, url, error) =>
-                        Center(child: Icon(Icons.error)),
-                    fit: BoxFit.fill,
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Card(
+                    elevation: 20,
+                    child: Hero(
+                      tag: "${product.id}",
+                      child: CachedNetworkImage(
+                        imageUrl: product['image'],
+                        placeholder: (context, url) =>
+                            Center(child: CircularProgressIndicator()),
+                        errorWidget: (context, url, error) =>
+                            Center(child: Icon(Icons.error)),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
                   ),
                 ),
               )

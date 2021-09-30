@@ -10,7 +10,7 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(int.parse(product['color'])),
+      backgroundColor: Colors.white,
       appBar: buildAppBar(context),
       body: Body(product: product),
     );
