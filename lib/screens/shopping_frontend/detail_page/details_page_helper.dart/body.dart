@@ -39,6 +39,7 @@ class Body extends StatelessWidget {
                     ),
                     child: Column(
                       children: <Widget>[
+                        SizedBox(height: 40),
                         ColorAndSize(product: product),
                         SizedBox(height: 10),
                         Description(product: product),

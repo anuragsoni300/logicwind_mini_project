@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ProductTitleWithImage extends StatelessWidget {
   const ProductTitleWithImage({
@@ -19,14 +20,23 @@ class ProductTitleWithImage extends StatelessWidget {
         children: <Widget>[
           Text(
             "Aristocratic Hand Bag",
-            style: TextStyle(color: Colors.black),
+            style: GoogleFonts.gruppo(
+              textStyle: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
+              ),
+            ),
           ),
           Text(
             product['title'],
-            style: Theme.of(context)
-                .textTheme
-                .headline4!
-                .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
+            style: GoogleFonts.gruppo(
+              textStyle: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w700,
+                fontSize: 40,
+              ),
+            ),
           ),
           SizedBox(height: 20),
           Row(
@@ -36,15 +46,23 @@ class ProductTitleWithImage extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: "Price\n",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline4!
-                          .copyWith(color: Colors.black),
+                      style: GoogleFonts.gruppo(
+                        textStyle: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18,
+                        ),
+                      ),
                     ),
                     TextSpan(
                       text: "${product['prize']}",
-                      style: Theme.of(context).textTheme.headline4!.copyWith(
-                          color: Colors.black, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.gruppo(
+                        textStyle: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 24,
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -52,18 +70,23 @@ class ProductTitleWithImage extends StatelessWidget {
               SizedBox(width: 20),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: EdgeInsets.only(bottom: 60, left: 20),
                   child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
                     elevation: 20,
-                    child: Hero(
-                      tag: "${product.id}",
-                      child: CachedNetworkImage(
-                        imageUrl: product['image'],
-                        placeholder: (context, url) =>
-                            Center(child: CircularProgressIndicator()),
-                        errorWidget: (context, url, error) =>
-                            Center(child: Icon(Icons.error)),
-                        fit: BoxFit.fill,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Hero(
+                        tag: "${product.id}",
+                        child: CachedNetworkImage(
+                          imageUrl: product['image'],
+                          placeholder: (context, url) =>
+                              Center(child: CircularProgressIndicator()),
+                          errorWidget: (context, url, error) =>
+                              Center(child: Icon(Icons.error)),
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     ),
                   ),

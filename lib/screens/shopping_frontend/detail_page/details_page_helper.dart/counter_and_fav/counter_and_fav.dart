@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 
 import 'counter.dart';
 
-class CounterWithFavBtn extends StatelessWidget {
+class CounterWithFavBtn extends StatefulWidget {
   const CounterWithFavBtn({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<CounterWithFavBtn> createState() => _CounterWithFavBtnState();
+}
+
+class _CounterWithFavBtnState extends State<CounterWithFavBtn> {
+  bool fav = false;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -21,7 +27,16 @@ class CounterWithFavBtn extends StatelessWidget {
             color: Colors.transparent,
             shape: BoxShape.circle,
           ),
-          child: Icon(Icons.favorite_border_rounded),
+          child: IconButton(
+            onPressed: () {
+              setState(() {
+                fav = !fav;
+              });
+            },
+            icon: Icon(
+              fav ? Icons.favorite_rounded : Icons.favorite_border_rounded,
+            ),
+          ),
         )
       ],
     );

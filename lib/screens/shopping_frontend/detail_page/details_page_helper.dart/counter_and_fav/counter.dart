@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CartCounter extends StatefulWidget {
   @override
@@ -28,7 +29,13 @@ class _CartCounterState extends State<CartCounter> {
           padding: EdgeInsets.symmetric(horizontal: 10),
           child: Text(
             numOfItems.toString().padLeft(2, "0"),
-            style: Theme.of(context).textTheme.headline6,
+            style: GoogleFonts.gruppo(
+              textStyle: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
+              ),
+            ),
           ),
         ),
         SizedBox(

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ddd/screens/shopping_frontend/detail_page/details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ProductCard extends StatelessWidget {
   final QueryDocumentSnapshot<Map<String, dynamic>> product;
@@ -55,12 +56,24 @@ class ProductCard extends StatelessWidget {
             child: Text(
               // products is out demo list
               product['title'],
-              style: TextStyle(color: Colors.black),
+              style: GoogleFonts.gruppo(
+                textStyle: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 18,
+                ),
+              ),
             ),
           ),
           Text(
             "\$${product['prize']}",
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: GoogleFonts.gruppo(
+              textStyle: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
+              ),
+            ),
           )
         ],
       ),

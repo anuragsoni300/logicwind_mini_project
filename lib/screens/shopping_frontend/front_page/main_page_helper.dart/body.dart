@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'categories.dart';
 import 'product_card.dart';
@@ -36,10 +37,13 @@ class _BodyState extends State<Body> {
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Text(
             "Women",
-            style: Theme.of(context)
-                .textTheme
-                .headline5!
-                .copyWith(fontWeight: FontWeight.bold),
+           style: GoogleFonts.gruppo(
+              textStyle: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w700,
+                fontSize: 40,
+              ),
+            ),
           ),
         ),
         Categories(),

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ColorAndSize extends StatelessWidget {
   const ColorAndSize({
@@ -17,7 +18,16 @@ class ColorAndSize extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text("Color"),
+              Text(
+                "Color",
+                style: GoogleFonts.gruppo(
+                  textStyle: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 14,
+                  ),
+                ),
+              ),
               Row(
                 children: <Widget>[
                   ColorDot(
@@ -36,13 +46,25 @@ class ColorAndSize extends StatelessWidget {
             text: TextSpan(
               style: TextStyle(color: Colors.black),
               children: [
-                TextSpan(text: "Size\n"),
+                TextSpan(
+                  text: "Size\n",
+                  style: GoogleFonts.gruppo(
+                    textStyle: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
                 TextSpan(
                   text: "${product['size']} cm",
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline5!
-                      .copyWith(fontWeight: FontWeight.bold),
+                  style: GoogleFonts.gruppo(
+                    textStyle: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18,
+                    ),
+                  ),
                 )
               ],
             ),
