@@ -13,6 +13,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   var fsconnect = FirebaseFirestore.instance;
   QuerySnapshot<Map<String, dynamic>>? d;
+  QuerySnapshot<Map<String, dynamic>>? x;
   @override
   void initState() {
     super.initState();
@@ -21,12 +22,13 @@ class _BodyState extends State<Body> {
 
   getData() async {
     d = await fsconnect.collection("bag").get();
-    if (this.mounted)
-      setState(() {
-        for (var i in d!.docs) {
-          print(i.data());
-        }
-      });
+    if (this.mounted) setState(() {});
+    x = await fsconnect
+        .collection('bag')
+        .where('title', isGreaterThanOrEqualTo: 'Belt')
+        .where('title', isLessThan: 'Belt' + 'z')
+        .get();
+    for (var i in x!.docs) print(i.data());
   }
 
   @override
