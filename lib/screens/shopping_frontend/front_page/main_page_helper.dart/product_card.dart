@@ -25,18 +25,27 @@ class ProductCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Expanded(
-            child: Container(
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Color(int.parse(product['color'])),
-                borderRadius: BorderRadius.circular(16),
+            child: Card(
+              elevation: 10,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
               ),
-              child: Hero(
-                tag: "${product.id}",
-                child: CachedNetworkImage(
-                  imageUrl: product['image'],
-                  placeholder: (context, url) => CircularProgressIndicator(),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Hero(
+                  tag: "${product.id}",
+                  child: SizedBox(
+                    height: 250,
+                    width: 250,
+                    child: CachedNetworkImage(
+                      imageUrl: product['image'],
+                      placeholder: (context, url) =>
+                          Center(child: CircularProgressIndicator()),
+                      errorWidget: (context, url, error) =>
+                          Center(child: Icon(Icons.error)),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
                 ),
               ),
             ),

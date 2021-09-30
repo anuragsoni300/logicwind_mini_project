@@ -45,7 +45,7 @@ class _BodyState extends State<Body> {
         Categories(),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.only(left: 15, right: 15),
             child: GridView.builder(
               itemCount: d == null ? 0 : d!.docs.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -54,8 +54,11 @@ class _BodyState extends State<Body> {
                 crossAxisSpacing: 20,
                 childAspectRatio: 0.75,
               ),
-              itemBuilder: (context, index) => ProductCard(
-                product: d!.docs[index],
+              itemBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.all(8),
+                child: ProductCard(
+                  product: d!.docs[index],
+                ),
               ),
             ),
           ),

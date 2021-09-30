@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class AddToCart extends StatelessWidget {
   const AddToCart({
@@ -27,10 +26,7 @@ class AddToCart extends StatelessWidget {
               ),
             ),
             child: IconButton(
-              icon: SvgPicture.asset(
-                "assets/icons/add_to_cart.svg",
-                color: Color(int.parse(product['color'])),
-              ),
+              icon: Icon(Icons.add),
               onPressed: () {},
             ),
           ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import 'main_page_helper.dart/body.dart';
 
@@ -17,22 +16,16 @@ class MainPage extends StatelessWidget {
       backgroundColor: Colors.white,
       elevation: 0,
       leading: IconButton(
-        icon: SvgPicture.asset("assets/icons/back.svg"),
+        icon: Icon(Icons.arrow_back_ios_new_rounded),
         onPressed: () {},
       ),
       actions: <Widget>[
         IconButton(
-          icon: SvgPicture.asset(
-            "assets/icons/search.svg",
-            color: Colors.black,
-          ),
+          icon: Icon(Icons.search),
           onPressed: () {},
         ),
         IconButton(
-          icon: SvgPicture.asset(
-            "assets/icons/cart.svg",
-            color: Colors.black,
-          ),
+          icon: Icon(Icons.add_box),
           onPressed: () {},
         ),
         SizedBox(width: 10)
