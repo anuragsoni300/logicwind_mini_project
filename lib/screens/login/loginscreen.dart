@@ -11,25 +11,21 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
     return SafeArea(
       child: Column(
         children: [
           TopBar(text: 'Login'),
-          Form(
-            key: _formKey,
-            child: Expanded(
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    EmailInput(formkey: _formKey),
-                    PasswordInput(formkey: _formKey),
-                    LoginButton(),
-                    LoginError(),
-                  ],
-                ),
+          Expanded(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  EmailInput(),
+                  PasswordInput(),
+                  LoginButton(),
+                  LoginError(),
+                ],
               ),
             ),
           ),

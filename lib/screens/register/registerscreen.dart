@@ -11,25 +11,21 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
     return SafeArea(
       child: Column(
         children: [
           TopBar(text: 'Register'),
-          Form(
-            key: _formKey,
-            child: Expanded(
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    EmailRgister(formkey: _formKey),
-                    PasswordRegister(formkey: _formKey),
-                    RegisterButton(),
-                    RegisterError(),
-                  ],
-                ),
+          Expanded(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  EmailRgister(),
+                  PasswordRegister(),
+                  RegisterButton(),
+                  RegisterError(),
+                ],
               ),
             ),
           ),
