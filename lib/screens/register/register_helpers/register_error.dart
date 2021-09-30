@@ -13,6 +13,7 @@ class RegisterError extends StatelessWidget {
         if (state is LoginuserDone) {
           Future.delayed(Duration.zero, () {
             Navigator.pop(context);
+            Navigator.pop(context);
             Navigator.pushNamed(context, '/mainpage');
           });
         }
