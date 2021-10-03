@@ -17,8 +17,8 @@ class SignInFromBloc extends Bloc<SignInFromEvent, SignInFromState> {
 
   SignInFromBloc(this._authFacade) : super(SignInFromState.initial()) {
     on(
-      (SignInFromEvent event, emit) {
-        event.map(
+      (SignInFromEvent event, emit) async {
+        await event.map(
           emailChanged: (e) {
             emit(state.copyWith(
               emailAddress: EmailAddress(e.emailStr),
@@ -40,16 +40,17 @@ class SignInFromBloc extends Bloc<SignInFromEvent, SignInFromState> {
                 authFailureOrSuccessOption: none(),
               );
 
-              final failureOrSuccess =
-                  await _authFacade.registerwithemialandpassword(
+              final x = await _authFacade.registerwithemialandpassword(
                 emailAddress: state.emailAddress,
                 password: state.password,
               );
-
-              emit(state.copyWith(
-                isSubmitting: false,
-                authFailureOrSuccessOption: some(failureOrSuccess),
-              ));
+              if (emit.isDone)
+                emit(
+                  state.copyWith(
+                    isSubmitting: false,
+                    authFailureOrSuccessOption: some(x),
+                  ),
+                );
             }
 
             emit(state.copyWith(
@@ -65,17 +66,17 @@ class SignInFromBloc extends Bloc<SignInFromEvent, SignInFromState> {
                 isSubmitting: true,
                 authFailureOrSuccessOption: none(),
               );
-
-              final failureOrSuccess =
-                  await _authFacade.signInwithemialandpassword(
+              final x = await _authFacade.signInwithemialandpassword(
                 emailAddress: state.emailAddress,
                 password: state.password,
               );
-
-              emit(state.copyWith(
-                isSubmitting: false,
-                authFailureOrSuccessOption: some(failureOrSuccess),
-              ));
+              if (emit.isDone)
+                emit(
+                  state.copyWith(
+                    isSubmitting: false,
+                    authFailureOrSuccessOption: some(x),
+                  ),
+                );
             }
 
             emit(state.copyWith(
@@ -88,11 +89,14 @@ class SignInFromBloc extends Bloc<SignInFromEvent, SignInFromState> {
               isSubmitting: true,
               authFailureOrSuccessOption: none(),
             ));
-            final failureOrSuccess = await _authFacade.signInwithgoogle();
-            emit(state.copyWith(
-              isSubmitting: false,
-              authFailureOrSuccessOption: some(failureOrSuccess),
-            ));
+            final x = await _authFacade.signInwithgoogle();
+            if (emit.isDone)
+              emit(
+                state.copyWith(
+                  isSubmitting: false,
+                  authFailureOrSuccessOption: some(x),
+                ),
+              );
           },
         );
       },

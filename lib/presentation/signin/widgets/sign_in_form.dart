@@ -11,7 +11,7 @@ class SignInForm extends StatelessWidget {
     return BlocConsumer<SignInFromBloc, SignInFromState>(
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
-          () => null,
+          () => Null,
           (a) => a.fold(
             (l) => Flushbar(
               message: l.map(
@@ -21,7 +21,10 @@ class SignInForm extends StatelessWidget {
                   invalidEmailAndPassword: (_) => "invalidEmailAndPassword"),
               duration: const Duration(seconds: 3),
             )..show(context),
-            (_) => Navigator.pushNamed(context, '/mainpage'),
+            (r) {
+              print('ANURAG');
+              Navigator.pushNamed(context, '/mainpage');
+            },
           ),
         );
       },
